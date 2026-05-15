@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --accent: #0d9488;
+  --accent-muted: #f0fdfa;
+  --border: #e2e8f0;
+  --sidebar-bg: #f1f5f9;
+  --card-bg: #ffffff;
+  --muted: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #f1f5f9;
+    --accent: #2dd4bf;
+    --accent-muted: #042f2e;
+    --border: #1e293b;
+    --sidebar-bg: #1e293b;
+    --card-bg: #1e293b;
+    --muted: #94a3b8;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Native <select> / <option> can ignore page text color and use the wrong
+ * color-scheme (e.g. white text on a white dropdown on Windows/Chrome).
+ * Tie scheme + option colors to our theme explicitly.
+ */
+select.app-select {
+  color-scheme: light;
+  color: #0f172a;
+}
+select.app-select option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+@media (prefers-color-scheme: dark) {
+  select.app-select {
+    color-scheme: dark;
+    color: #f1f5f9;
+  }
+  select.app-select option {
+    background-color: #1e293b;
+    color: #f1f5f9;
+  }
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb { background: #334155; }
+}
+
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+.typing-dot {
+  animation: bounce-dot 1.2s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
