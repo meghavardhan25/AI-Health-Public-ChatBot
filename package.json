@@ -1,0 +1,24 @@
+{
+  "name": "ai-health-public-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI health chatbot monorepo with frontend and backend",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meghavardhan25/AI-Health-Public-ChatBot.git"
+  },
+  "author": "meghavardhan25",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev:frontend": "cd frontend && npm install && npm run dev",
+    "dev:backend": "cd backend && npm install && npm run dev",
+    "build:frontend": "cd frontend && npm ci && npm run build",
+    "build:backend": "cd backend && npm ci && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "test": "npm run build"
+  }
+}
